@@ -1,0 +1,21 @@
+{
+  "services": [
+    // sing-box API 服务：管理 + 官方 dashboard（替代废弃的 zashboard / Clash API）
+    {
+      "type": "api",
+      "tag": "sing-box-api",
+      "listen": "0.0.0.0",
+      "listen_port": 9091,
+      "secret": "",                                               // API 密钥（留空=不鉴权）
+      "access_control_allow_origin": [],
+      "access_control_allow_private_network": true,               // 允许内网访问
+      "dashboard": {
+        "enabled": true,                                          // 启用官方 Web 面板
+        "path": "/usr/local/etc/sing-box/ui-sing-box",            // 面板文件目录
+        "download_url": "https://github.com/SagerNet/sing-box-dashboard/archive/refs/heads/gh-pages.zip",
+        "http_client": "rule-set-download",                       // 下载面板走代理
+        "update_interval": "1d"                                   // 面板更新间隔
+      }
+    }
+  ]
+}

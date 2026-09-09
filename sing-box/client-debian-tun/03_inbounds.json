@@ -1,0 +1,41 @@
+﻿{
+  "inbounds": [
+    // HTTP + SOCKS5 混合入站：本地代理端口，供手动指定代理的设备使用
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 8888
+    },
+    // 纯 SOCKS5 入站
+    {
+      "type": "socks",
+      "tag": "socks-in",
+      "listen": "::",
+      "listen_port": 7891
+    },
+    // TUN 透明代理入站：Linux 上 auto_redirect 提供优于 tproxy 的性能并避免 Docker 冲突
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "sing-box-tun",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 1500,
+      "dns_mode": "disabled",
+      "auto_route": true,
+      "auto_redirect": true,
+      "strict_route": true,
+      "stack": "mixed"
+    },
+    // FakeIP DNS 入口：SmartDNS 将国外域名 DNS 转发到 :6666，经 hijack-dns 进 DNS 模块
+    {
+      "type": "direct",
+      "tag": "fake-in",
+      "listen": "::",
+      "listen_port": 6666
+    }
+  ]
+}

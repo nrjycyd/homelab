@@ -1,0 +1,129 @@
+{
+  "outbounds": [
+    // 节点选择器：路由规则引用 proxy（默认走 <node-2>）
+    {
+      "tag": "proxy",
+      "type": "selector",
+      "outbounds": ["<node-1>", "<node-2>", "<node-3>"],
+      "default": "<node-2>"
+    },
+    // 手动选择器：代理 / 直连 切换（默认 proxy），2b/6 等规则引用
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": ["proxy", "direct"],
+      "default": "proxy"
+    },
+    // 节点 1：<node-1>（hysteria2）
+    {
+      "type": "hysteria2",
+      "tag": "<node-1>",
+      "server": "<node-1-ip>",
+      "server_ports": [
+        "30000:50000"
+      ],
+      "password": "<password-1>",
+      "up_mbps": 50,
+      "down_mbps": 100,
+      "obfs": {
+        "type": "salamander",
+        "password": "<obfs-password-1>"
+      },
+      "tls": {
+        "enabled": true,
+        "disable_sni": false,
+        "server_name": "<sni-1>",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ],
+        "certificate_path": "<cert-path-1>"
+      }
+    },
+    // 节点 2：<node-2>（hysteria2）
+    {
+      "type": "hysteria2",
+      "tag": "<node-2>",
+      "server": "<node-2-ip>",
+      "server_ports": [
+        "30000:50000"
+      ],
+      "password": "<password-2>",
+      "up_mbps": 50,
+      "down_mbps": 100,
+      "obfs": {
+        "type": "salamander",
+        "password": "<obfs-password-2>"
+      },
+      "tls": {
+        "enabled": true,
+        "disable_sni": false,
+        "server_name": "<sni-1>",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ],
+        "certificate_path": "<cert-path-2>"
+      }
+    },
+    // 节点 3：<node-3>（vless + XTLS Vision）
+    {
+      "type": "vless",
+      "tag": "<node-3>",
+      "server": "<node-3-ip>",
+      "server_port": 443,
+      "uuid": "<uuid>",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "disable_sni": false,
+        "server_name": "<sni-2>",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    // GH 选择器：<home-cidr> 特判走 GH（默认 <gh-node>）
+    {
+      "tag": "GH",
+      "type": "selector",
+      "outbounds": [
+        "<gh-node>"
+      ],
+      "default": "<gh-node>"
+    },
+    // GH 节点：<gh-node>（hysteria2，测速专用）
+    {
+      "type": "hysteria2",
+      "tag": "<gh-node>",
+      "server": "<gh-server-domain>",
+      "server_port": 17569,
+      "password": "<password-3>",
+      "up_mbps": 50,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "disable_sni": false,
+        "server_name": "<sni-3>",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ],
+        "certificate_path": "<cert-path-3>"
+      }
+    },
+    // 直连出站：国内流量 / 局域网
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    // 阻断出站：广告 / 拒绝规则用
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}

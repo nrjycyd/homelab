@@ -1,0 +1,151 @@
+{
+  "dns": {
+    "servers": [
+      // 国外 DNS：DoH（dns.google），走代理，解析国外域名
+      {
+        "type": "https",
+        "tag": "remote-dns",
+        "server": "dns.google",
+        "server_port": 443,
+        "path": "/dns-query",
+        "domain_resolver": {
+          // 用 ali-dns 引导解析 dns.google 自身，只用 IPv4
+          "server": "ali-dns",
+          "strategy": "ipv4_only"
+        },
+        "detour": "proxy"
+      },
+      // 本地 DNS：DoH（1.0.0.1），走代理，解析国内域名
+      {
+        "type": "https",
+        "tag": "local-dns",
+        "server": "1.0.0.1",
+        "server_port": 443,
+        "path": "/dns-query",
+        "domain_resolver": {
+          // 1.0.0.1 是 IP 无需解析，此配置实际不生效
+          "server": "ali-dns",
+          "strategy": "prefer_ipv4"
+        },
+        "detour": "proxy"
+      },
+      // 引导 DNS：DoQ（阿里 223.5.5.5）直连，用于解析各 DNS 服务器域名
+      {
+        "type": "quic",
+        "tag": "ali-dns",
+        "server": "223.5.5.5",
+        "server_port": 853
+      },
+      // FakeIP：v4 段 28.0.0.0/8 + v6 段 f2b0::/18（主路由 sing-box-v6 表已就绪），按对应段路由到 sing-box
+      {
+        "type": "fakeip",
+        "tag": "fakeip-dns",
+        "inet4_range": "28.0.0.0/8",
+        "inet6_range": "f2b0::/18"
+      }
+    ],
+    "rules": [
+      // 拦截特殊查询类型（SOA/PTR/HTTPS/SVCB），返回空 NOERROR
+      {
+        "query_type": ["SOA", "PTR", "HTTPS", "SVCB"],
+        "action": "predefined",
+        "rcode": "NOERROR"
+      },
+      // 只允许 A/AAAA 查询，其余类型一律拒绝
+      {
+        "query_type": ["A", "AAAA"],
+        "invert": true,
+        "action": "reject"
+      },
+      // 1 局域网(private) → 本地 DNS
+      {
+        "rule_set": ["geosite-private"],
+        "action": "route",
+        "server": "local-dns"
+      },
+      // 2a 自定义拒绝 → NXDOMAIN
+      {
+        "rule_set": ["cusdom-reject"],
+        "action": "predefined",
+        "rcode": "NXDOMAIN"
+      },
+      // 2b 自定义代理 → fakeip-dns（A 拿 fake v4 28.x；AAAA 拿 fake v6 f2b0::）
+      {
+        "rule_set": ["cusdom-proxy"],
+        "action": "route",
+        "server": "fakeip-dns"
+      },
+      // 2c 自定义直连 → 本地 DNS
+      {
+        "rule_set": ["cusdom-direct"],
+        "action": "route",
+        "server": "local-dns"
+      },
+      // 3 广告 → NXDOMAIN
+      {
+        "rule_set": ["geosite-category-ads-all"],
+        "action": "predefined",
+        "rcode": "NXDOMAIN"
+      },
+      // 4 apple 国内可直连 → 本地 DNS
+      {
+        "rule_set": ["geosite-apple-cn"],
+        "action": "route",
+        "server": "local-dns"
+      },
+      // 5 google 国内可直连 → 本地 DNS
+      {
+        "rule_set": ["geosite-google-cn"],
+        "action": "route",
+        "server": "local-dns"
+      },
+      // 6 非国内域名（成人站 + geolocation-!cn）→ fakeip-dns（A 拿 fake v4 28.x；AAAA 拿 fake v6 f2b0::）
+      {
+        "rule_set": [
+          "geosite-javdb",
+          "geosite-javbus",
+          "geosite-jable",
+          "geosite-dmm",
+          "geosite-pornhub",
+          "geosite-geolocation-!cn"
+        ],
+        "action": "route",
+        "server": "fakeip-dns"
+      },
+      // 7 国内域（学术/AI/游戏/Steam/CN）→ 本地 DNS
+      {
+        "rule_set": [
+          "geosite-category-scholar-cn",
+          "geosite-category-ai-cn",
+          "geosite-category-games-cn",
+          "geosite-steam@cn",
+          "geosite-cn"
+        ],
+        "action": "route",
+        "server": "local-dns"
+      },
+      // 8 兜底 realip：先 remote-dns 解析判断
+      {
+        "action": "evaluate",
+        "server": "remote-dns"
+      },
+      // 响应为国内 IP → 改走本地 DNS（拿真实国内地址直连）
+      {
+        "match_response": true,
+        "rule_set": ["geoip-cn"],
+        "action": "route",
+        "server": "local-dns"
+      },
+      // 只有国外域名（realip 判定非国内的 fake-in 客户端查询）→ fakeip，连接时映射回域名走代理
+      {
+        "inbound": "fake-in",
+        "server": "fakeip-dns",
+        "rewrite_ttl": 1
+      }
+    ],
+    // 未命中任何规则的查询 → 兜底 remote-dns
+    "final": "remote-dns",
+    // 默认域名策略：优先 IPv4
+    "strategy": "prefer_ipv4"
+  }
+}

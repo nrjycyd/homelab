@@ -1,0 +1,11 @@
+{
+  // 实验性功能
+  "experimental": {
+    // 缓存文件：持久化 fakeip 映射与规则集缓存，重启不丢
+    "cache_file": {
+      "enabled": true,                                            // 启用缓存
+      "path": "/usr/local/etc/sing-box/cache.db",                 // 缓存文件路径
+      "store_fakeip": true                                        // 持久化 fakeip 域名↔IP 映射
+    }
+  }
+}
