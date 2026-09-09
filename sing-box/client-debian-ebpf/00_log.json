@@ -1,0 +1,9 @@
+{
+  // 日志配置
+  "log": {
+    "disabled": false,                                            // 启用日志
+    "level": "error",                                             // 级别：error（生产环境，仅记录错误）
+    "output": "/usr/local/etc/sing-box/sing-box.log",             // 日志文件路径
+    "timestamp": true                                             // 记录时间戳
+  }
+}

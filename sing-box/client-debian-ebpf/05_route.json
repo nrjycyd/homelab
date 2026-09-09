@@ -1,0 +1,76 @@
+{
+  "route": {
+    "rule_set": [
+      {"type": "local", "tag": "geosite-javdb", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/javdb.srs"},
+      {"type": "local", "tag": "geosite-javbus", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/javbus.srs"},
+      {"type": "local", "tag": "geosite-jable", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/jable.srs"},
+      {"type": "local", "tag": "geosite-dmm", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/dmm.srs"},
+      {"type": "local", "tag": "geosite-pornhub", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/pornhub.srs"},
+      {"type": "local", "tag": "geosite-category-ai-cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/category-ai-cn.srs"},
+      {"type": "local", "tag": "geosite-category-games-cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/category-games-cn.srs"},
+      {"type": "local", "tag": "geosite-steam@cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/steam@cn.srs"},
+      {"type": "local", "tag": "geosite-category-scholar-cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/category-scholar-cn.srs"},
+      {"type": "local", "tag": "geosite-cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/cn.srs"},
+      {"type": "local", "tag": "geoip-cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geoip/cn.srs"},
+      {"type": "local", "tag": "geosite-apple-cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/apple-cn.srs"},
+      {"type": "local", "tag": "geosite-google-cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/google-cn.srs"},
+      {"type": "local", "tag": "geosite-geolocation-!cn", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/geolocation-!cn.srs"},
+      {"type": "local", "tag": "geosite-category-ads-all", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/category-ads-all.srs"},
+      {"type": "local", "tag": "geosite-private", "format": "binary", "path": "/usr/local/etc/sing-box/rules/geosite/private.srs"},
+      {"type": "inline", "tag": "cusdom-reject", "rules": [{"domain": ["<reject-domain>"]}]},
+      {"type": "inline", "tag": "cusdom-proxy", "rules": [{"domain": ["<proxy-domain-1>", "<proxy-domain-2>"]}]},
+      {"type": "inline", "tag": "cusdom-direct", "rules": [{"domain_suffix": ["<direct-domain>"]}]}
+    ],
+    "rules": [
+      {"inbound": "fake-in", "action": "hijack-dns"},
+      {"action": "sniff"},
+      // 公共 DNS 走代理，防 DNS 泄漏
+      {"ip_cidr": ["1.1.1.1/32", "1.0.0.1/32", "8.8.8.8/32", "8.8.4.4/32", "2001:4860:4860::8888/128", "2001:4860:4860::8844/128", "2606:4700:4700::1111/128", "2606:4700:4700::1001/128"], "action": "route", "outbound": "proxy"},
+      // 阿里 DNS 直连
+      {"ip_cidr": ["223.5.5.5/32", "223.6.6.6/32"], "action": "route", "outbound": "direct"},
+      // 拒 DoT / UDP443(QUIC) / STUN
+      {"type": "logical", "mode": "or", "rules": [{"port": 853}, {"network": "udp", "port": 443}, {"protocol": "stun"}], "action": "reject", "method": "drop"},
+      // <home-cidr> 走 GH（特判）
+      {"ip_cidr": ["<home-cidr-with-prefix>"], "action": "route", "outbound": "GH"},
+      // 私网地址直连
+      {"ip_is_private": true, "action": "route", "outbound": "direct"},
+      // 1 局域网(private) → 直连
+      {"rule_set": ["geosite-private"], "action": "route", "outbound": "direct"},
+      // 2a 自定义拒绝 → 拦截
+      {"rule_set": ["cusdom-reject"], "action": "reject"},
+      // 2b 自定义代理 → 走代理
+      {"rule_set": ["cusdom-proxy"], "action": "route", "outbound": "select"},
+      // 2c 自定义直连 → 直连
+      {"rule_set": ["cusdom-direct"], "action": "route", "outbound": "direct"},
+      // 3 广告 → 拦截
+      {"rule_set": ["geosite-category-ads-all"], "action": "reject"},
+      // 4 apple 国内可直连 → 直连
+      {"rule_set": ["geosite-apple-cn"], "action": "route", "outbound": "direct"},
+      // 5 google 国内可直连 → 直连
+      {"rule_set": ["geosite-google-cn"], "action": "route", "outbound": "direct"},
+      // 6 非国内域名 → 走代理
+      {"rule_set": ["geosite-javdb"], "action": "route", "outbound": "<node-1>"},
+      {"rule_set": ["geosite-javbus"], "action": "route", "outbound": "<node-1>"},
+      {"rule_set": ["geosite-jable"], "action": "route", "outbound": "<node-1>"},
+      {"rule_set": ["geosite-dmm"], "action": "route", "outbound": "<node-1>"},
+      {"rule_set": ["geosite-pornhub"], "action": "route", "outbound": "<node-1>"},
+      {"rule_set": ["geosite-geolocation-!cn"], "action": "route", "outbound": "select"},
+      // 7 国内域名 → 直连
+      {"rule_set": ["geosite-category-scholar-cn"], "action": "route", "outbound": "direct"},
+      {"rule_set": ["geosite-category-ai-cn"], "action": "route", "outbound": "direct"},
+      {"rule_set": ["geosite-category-games-cn"], "action": "route", "outbound": "direct"},
+      {"rule_set": ["geosite-steam@cn"], "action": "route", "outbound": "direct"},
+      {"rule_set": ["geosite-cn"], "action": "route", "outbound": "direct"},
+      // 8 兜底 realip：解析后按 geoip-cn 分流（国内 IP 直连，其余走 final=select）
+      { "action": "resolve" },
+      {"rule_set": ["geoip-cn"], "action": "route", "outbound": "direct"}
+    ],
+    "default_domain_resolver": {
+      "server": "ali-dns",
+      "strategy": "ipv4_only"
+    },
+    "auto_detect_interface": true,
+    // default_mark 已移除：与 tun auto_redirect 冲突（sing-box 官方文档明确）
+    "final": "select"
+  }
+}

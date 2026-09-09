@@ -1,0 +1,45 @@
+{
+  "inbounds": [
+    // HTTP + SOCKS5 混合入站：本地代理端口，供手动指定代理的设备使用
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 8888
+    },
+    // 纯 SOCKS5 入站
+    {
+      "type": "socks",
+      "tag": "socks-in",
+      "listen": "::",
+      "listen_port": 7891
+    },
+    // eBPF 透明代理入站：TC 挂 ens192 拦截 RouterOS 转发进来的代理流量
+    // v1.14.0-reF1nd.1 schema：dns_mode 在 shared 内；ipv6_mode 改为 ipv6(bool)；state_capacity 已移除
+    {
+      "type": "ebpf",
+      "tag": "ebpf-in",
+      "mode": "shared",
+      "network": ["tcp", "udp"],
+      "udp_timeout": "5m",
+      "bypass_rule_set": [],
+      "shared": {
+        "dns_mode": "off",
+        "interface": ["ens192"],
+        "ipv6": true,
+        "bypass_private_address": true,
+        "include_source_cidr": ["10.0.0.0/24", "fd66:911f:3a47::1/64"],
+        "advanced": {
+          "tc_priority": 1
+        }
+      }
+    },
+    // FakeIP DNS 入口：SmartDNS 将国外域名 DNS 转发到 :6666，经 hijack-dns 进 DNS 模块
+    {
+      "type": "direct",
+      "tag": "fake-in",
+      "listen": "::",
+      "listen_port": 6666
+    }
+  ]
+}

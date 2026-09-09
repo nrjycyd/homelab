@@ -1,0 +1,9 @@
+{
+  "http_clients": [
+    // 共享 HTTP client：规则集 / dashboard 下载用（走代理出站）
+    {
+      "tag": "rule-set-download",
+      "detour": "proxy"
+    }
+  ]
+}
