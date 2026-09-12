@@ -136,6 +136,16 @@
         "action": "route",
         "server": "local-dns"
       },
+      // 8b 解析不出真实 IP（NXDOMAIN）→ 直接回 NXDOMAIN，不 fakeip 化
+      //    避免未知/畸形域名白拿 28.x fakeip → 设备拨 28.x → router NXDOMAIN 噪音；
+      //    顺带拦截 mywap2.icbc.com.cn(null) 这类畸形名，让查询按"真 NXDOMAIN"结束。
+      //    注：response_rcode 在 1.14 是单值字符串；SERVFAIL 刻意不转 NXDOMAIN（会压制客户端重试）
+      {
+        "match_response": true,
+        "response_rcode": "NXDOMAIN",
+        "action": "predefined",
+        "rcode": "NXDOMAIN"
+      },
       // 只有国外域名（realip 判定非国内的 fake-in 客户端查询）→ fakeip，连接时映射回域名走代理
       {
         "inbound": "fake-in",
