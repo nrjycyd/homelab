@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "updated_at": "2026-09-06T10:28:28Z",
-  "status": "ok",
+  "status": "partial",
   "binaries": {
     "mosdns": {
       "version": "5-ph-srs-20260730-b93784b",
