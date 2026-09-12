@@ -114,7 +114,8 @@ select_asset() {
   for seg in "${segs[@]}"; do
     if [[ "$seg" == !* ]]; then excls+=("${seg#!}"); else pats+=("$seg"); fi
   done
-  local suffix=".$type" asset_name hit p e result=""
+  local suffix="" asset_name hit p e result=""
+  [[ -n "$type" && "$type" != "none" ]] && suffix=".$type"
   for asset_name in $(echo "$release_json" | jq -r '.assets[].name'); do
     hit=false
     for p in "${pats[@]}"; do
@@ -125,6 +126,7 @@ select_asset() {
       [[ "$asset_name" == $e ]] && { hit=false; break; }
     done
     [[ "$hit" == true ]] || continue
+    # type=none（或空）表示无扩展名资产，suffix 为空，此处校验恒真
     [[ "$asset_name" == *"$suffix" ]] || continue
     result="$asset_name"
     break
