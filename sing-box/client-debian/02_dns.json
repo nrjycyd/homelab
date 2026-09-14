@@ -9,30 +9,16 @@
         "server_port": 443,
         "path": "/dns-query",
         "domain_resolver": {
-          // 用 ali-dns 引导解析 dns.google 自身，只用 IPv4
-          "server": "ali-dns",
+          // 用 local-dns 引导解析 dns.google 自身，只用 IPv4
+          "server": "local-dns",
           "strategy": "ipv4_only"
         },
         "detour": "proxy"
       },
-      // 本地 DNS：DoH（1.0.0.1），走代理，解析国内域名
-      {
-        "type": "https",
-        "tag": "local-dns",
-        "server": "1.0.0.1",
-        "server_port": 443,
-        "path": "/dns-query",
-        "domain_resolver": {
-          // 1.0.0.1 是 IP 无需解析，此配置实际不生效
-          "server": "ali-dns",
-          "strategy": "prefer_ipv4"
-        },
-        "detour": "proxy"
-      },
-      // 引导 DNS：DoQ（阿里 223.5.5.5）直连，用于解析各 DNS 服务器域名
+      // 本地 DNS：DoQ（223.5.5.5），直连，解析国内域名
       {
         "type": "quic",
-        "tag": "ali-dns",
+        "tag": "local-dns",
         "server": "223.5.5.5",
         "server_port": 853
       },
