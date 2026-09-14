@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-12T11:11:19Z",
+  "updated_at": "2026-09-14T22:56:59Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -124,58 +124,58 @@
       ]
     },
     "mihomo": {
-      "version": "1.19.30",
-      "tag": "v1.19.30",
-      "prev_tag": "",
+      "version": "1.19.31",
+      "tag": "v1.19.31",
+      "prev_tag": "v1.19.30",
       "repo": "MetaCubeX/mihomo",
       "assets": [
         {
-          "file": "mihomo-linux-amd64-v1-v1.19.30.gz",
+          "file": "mihomo-linux-amd64-v1-v1.19.31.gz",
           "type": "gz",
-          "sha256": "cbe553d0319a414bd3a372c5976a252155b2c4882b66bce88a4d6bba9571a553",
-          "size": "18899943",
-          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.30/mihomo-linux-amd64-v1-v1.19.30.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v1-v1.19.30.gz"
+          "sha256": "d4304c546c3cddcb6fafd4b4fddb0ba1a95ffa36606fda56d75db2e59ad24114",
+          "size": "22821828",
+          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v1-v1.19.31.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v1-v1.19.31.gz"
         },
         {
-          "file": "mihomo-linux-amd64-v1-v1.19.30.deb",
+          "file": "mihomo-linux-amd64-v1-v1.19.31.deb",
           "type": "deb",
-          "sha256": "5ffa2e31f3b54a12a0804162af413fdb1305fd0d0d1286e752096799f372a664",
-          "size": "18779520",
-          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.30/mihomo-linux-amd64-v1-v1.19.30.deb",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v1-v1.19.30.deb"
+          "sha256": "b3614803a209b27fc3dc40e3aed8ebbdade9f5393fdf0e058c40b6a73ea6a0e6",
+          "size": "22681212",
+          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v1-v1.19.31.deb",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v1-v1.19.31.deb"
         },
         {
-          "file": "mihomo-linux-amd64-v2-v1.19.30.gz",
+          "file": "mihomo-linux-amd64-v2-v1.19.31.gz",
           "type": "gz",
-          "sha256": "87c345ed9905f607b702c17cc78f086b1db0a62b01e87cf9e245f089a5d2b8f7",
-          "size": "18885933",
-          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.30/mihomo-linux-amd64-v2-v1.19.30.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v2-v1.19.30.gz"
+          "sha256": "560a14ba51482e85e90b6c9b141f3b7b1543795f9ecd82eb9a6c5153a1b7960b",
+          "size": "22805792",
+          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v2-v1.19.31.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v2-v1.19.31.gz"
         },
         {
-          "file": "mihomo-linux-amd64-v2-v1.19.30.deb",
+          "file": "mihomo-linux-amd64-v2-v1.19.31.deb",
           "type": "deb",
-          "sha256": "4d1ee942f5b5fe9ea587480127bfdbbf86ebc4e5a286d7e4425ceaee30057964",
-          "size": "18766112",
-          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.30/mihomo-linux-amd64-v2-v1.19.30.deb",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v2-v1.19.30.deb"
+          "sha256": "0db6fff7999397a07091e86cdb3c4c85065aeeb7bff9cbb9b967b60d7ad4a48c",
+          "size": "22670848",
+          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v2-v1.19.31.deb",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v2-v1.19.31.deb"
         },
         {
-          "file": "mihomo-linux-amd64-v3-v1.19.30.gz",
+          "file": "mihomo-linux-amd64-v3-v1.19.31.gz",
           "type": "gz",
-          "sha256": "2c3d87ea31a8b420285fa4c1dedd9fb2356fe289b609edac1c671c00738a1544",
-          "size": "18868736",
-          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.30/mihomo-linux-amd64-v3-v1.19.30.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v3-v1.19.30.gz"
+          "sha256": "4e8808e79f1e452a0300ce1ee89fcaf2cccd5249a100f2238877214e5ca316b3",
+          "size": "22789796",
+          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v3-v1.19.31.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v3-v1.19.31.gz"
         },
         {
-          "file": "mihomo-linux-amd64-v3-v1.19.30.deb",
+          "file": "mihomo-linux-amd64-v3-v1.19.31.deb",
           "type": "deb",
-          "sha256": "dd1bffce4e89bb7814d865f80542d71f6746f3ff12818a3f4315d6f3ec380b88",
-          "size": "18744608",
-          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.30/mihomo-linux-amd64-v3-v1.19.30.deb",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v3-v1.19.30.deb"
+          "sha256": "056f17fcf5507a9e8f764aca2972e20aa33aa578c9d550c56a353a0f0995c8e1",
+          "size": "22650086",
+          "source": "https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-linux-amd64-v3-v1.19.31.deb",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mihomo-linux-amd64-v3-v1.19.31.deb"
         }
       ]
     },
