@@ -127,14 +127,14 @@
       // 8 兜底 realip：先 remote-dns 解析判断
       {
         "action": "evaluate",
-        "server": "remote-dns"
+        "server": "remote-dns",
+        "client_subnet": "180.168.255.18/24"
       },
       // 响应为国内 IP → 改走本地 DNS（拿真实国内地址直连）
       {
         "match_response": true,
         "rule_set": ["geoip-cn"],
-        "action": "route",
-        "server": "local-dns"
+        "action": "respond"
       },
       // 8b 解析不出真实 IP（NXDOMAIN）→ 直接回 NXDOMAIN，不 fakeip 化
       //    避免未知/畸形域名白拿 28.x fakeip → 设备拨 28.x → router NXDOMAIN 噪音；
