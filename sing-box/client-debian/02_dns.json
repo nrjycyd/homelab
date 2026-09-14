@@ -36,11 +36,12 @@
         "server": "223.5.5.5",
         "server_port": 853
       },
-      // FakeIP：只配 v4 段（无 inet6_range → AAAA 返回空 = 禁 v6），主路由按 28.0.0.0/8 路由到 sing-box
+      // FakeIP：v4 段 28.0.0.0/8 + v6 段 f2b0::/18（RouterOS sing-box-v6 表已就绪），主路由按对应段路由到 sing-box
       {
         "type": "fakeip",
         "tag": "fakeip-dns",
-        "inet4_range": "28.0.0.0/8"
+        "inet4_range": "28.0.0.0/8",
+        "inet6_range": "f2b0::/18"
       }
     ],
     "rules": [
@@ -68,7 +69,7 @@
         "action": "predefined",
         "rcode": "NXDOMAIN"
       },
-      // 2b 自定义代理 → fakeip-dns（A 拿 fake v4；无 inet6_range → AAAA 空 = 禁 v6）
+      // 2b 自定义代理 → fakeip-dns（A 拿 fake v4 28.x；AAAA 拿 fake v6 f2b0::）
       {
         "rule_set": ["cusdom-proxy"],
         "action": "route",
@@ -98,7 +99,7 @@
         "action": "route",
         "server": "local-dns"
       },
-      // 6 非国内域名（成人站 + geolocation-!cn）→ fakeip-dns（A 拿 fake v4；无 inet6_range → AAAA 返回空，即禁 v6）
+      // 6 非国内域名（成人站 + geolocation-!cn）→ fakeip-dns（A 拿 fake v4 28.x；AAAA 拿 fake v6 f2b0::）
       {
         "rule_set": [
           "geosite-javdb",
@@ -126,14 +127,14 @@
       // 8 兜底 realip：先 remote-dns 解析判断
       {
         "action": "evaluate",
-        "server": "remote-dns"
+        "server": "remote-dns",
+        "client_subnet": "180.168.255.18/24"
       },
       // 响应为国内 IP → 改走本地 DNS（拿真实国内地址直连）
       {
         "match_response": true,
         "rule_set": ["geoip-cn"],
-        "action": "route",
-        "server": "local-dns"
+        "action": "respond"
       },
       // 8b 解析不出真实 IP（NXDOMAIN）→ 直接回 NXDOMAIN，不 fakeip 化
       //    避免未知/畸形域名白拿 28.x fakeip → 设备拨 28.x → router NXDOMAIN 噪音；
