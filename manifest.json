@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-15T07:41:35Z",
+  "updated_at": "2026-09-15T22:42:59Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -92,34 +92,34 @@
       ]
     },
     "sing-box-releases": {
-      "version": "1.14.0-reF1nd.1",
-      "tag": "v1.14.0-reF1nd.1",
-      "prev_tag": "",
+      "version": "1.14.1-reF1nd",
+      "tag": "v1.14.1-reF1nd",
+      "prev_tag": "v1.14.0-reF1nd.1",
       "repo": "reF1nd/sing-box-releases",
       "assets": [
         {
-          "file": "sing-box-releases-SFL-1.14.0-reF1nd.1-amd64.deb",
+          "file": "sing-box-releases-SFL-1.14.1-reF1nd-amd64.deb",
           "type": "deb",
-          "sha256": "b584e468b2be0e3412b7cff3a4ba2bb6502190503103c22bc8c2c1c476419246",
-          "size": "112365218",
-          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd.1/SFL-1.14.0-reF1nd.1-amd64.deb",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-SFL-1.14.0-reF1nd.1-amd64.deb"
+          "sha256": "ac2dcd530e20e0129443b06b893fb0b96b979e1f0546909417f55a44b24c0720",
+          "size": "112725714",
+          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.1-reF1nd/SFL-1.14.1-reF1nd-amd64.deb",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-SFL-1.14.1-reF1nd-amd64.deb"
         },
         {
-          "file": "sing-box-releases-1.14.0-reF1nd.1-linux-amd64-glibc.tar.gz",
+          "file": "sing-box-releases-1.14.1-reF1nd-linux-amd64-glibc.tar.gz",
           "type": "tar.gz",
-          "sha256": "94a8329f4461e8965ea9321313e82c607c7b742c6a2fa08d83828bfecf13758a",
-          "size": "33981601",
-          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd.1/sing-box-1.14.0-reF1nd.1-linux-amd64-glibc.tar.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.0-reF1nd.1-linux-amd64-glibc.tar.gz"
+          "sha256": "0e39a3e63d95356e2a940854d17d9440bb077b9659d053044dd7ed2df639508d",
+          "size": "34447285",
+          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.1-reF1nd/sing-box-1.14.1-reF1nd-linux-amd64-glibc.tar.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.1-reF1nd-linux-amd64-glibc.tar.gz"
         },
         {
-          "file": "sing-box-releases-1.14.0-reF1nd.1-linux-amd64-musl.tar.gz",
+          "file": "sing-box-releases-1.14.1-reF1nd-linux-amd64-musl.tar.gz",
           "type": "tar.gz",
-          "sha256": "6831a8fe8faf0e030715773e4daee75a8a0261a4047bc6cc68e09b9e7f7e0136",
-          "size": "34010793",
-          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd.1/sing-box-1.14.0-reF1nd.1-linux-amd64-musl.tar.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.0-reF1nd.1-linux-amd64-musl.tar.gz"
+          "sha256": "6b9464b4fd4bcbf5f2820b7563b6ee1727850b703f3b06bc3cc8997eee4514ce",
+          "size": "34477927",
+          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.1-reF1nd/sing-box-1.14.1-reF1nd-linux-amd64-musl.tar.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.1-reF1nd-linux-amd64-musl.tar.gz"
         }
       ]
     },
@@ -236,26 +236,26 @@
       ]
     },
     "routeros": {
-      "version": "7.24.2",
-      "tag": "7.24.2",
-      "prev_tag": "",
+      "version": "7.24.3",
+      "tag": "7.24.3",
+      "prev_tag": "7.24.2",
       "repo": "elseif/MikroTikPatch",
       "assets": [
         {
-          "file": "routeros-chr-7.24.2.vmdk.zip",
+          "file": "routeros-chr-7.24.3.vmdk.zip",
           "type": "zip",
-          "sha256": "6d8ae1f53542c78019d68256f3b05700d103603d1cfe71117dde830055eb0b03",
-          "size": "26906634",
-          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.2/chr-7.24.2.vmdk.zip",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.2.vmdk.zip"
+          "sha256": "ed66d901bcb3305ebd8e8bf3592a8e590fa67e7f20871bf03952c36470177e72",
+          "size": "26912299",
+          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.3/chr-7.24.3.vmdk.zip",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.3.vmdk.zip"
         },
         {
-          "file": "routeros-chr-7.24.2-legacy-bios.vmdk.zip",
+          "file": "routeros-chr-7.24.3-legacy-bios.vmdk.zip",
           "type": "zip",
-          "sha256": "b54cc3f1cfc261b129db7c8cb46c98f8a1cb13b0879bd5d1ff369037557240d2",
-          "size": "26935427",
-          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.2/chr-7.24.2-legacy-bios.vmdk.zip",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.2-legacy-bios.vmdk.zip"
+          "sha256": "beed045788dcf9cda4b7a38b63caf982f979bce9d791a73ed73f5f6ed2704ce1",
+          "size": "26941559",
+          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.3/chr-7.24.3-legacy-bios.vmdk.zip",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.3-legacy-bios.vmdk.zip"
         }
       ]
     },
