@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-15T22:42:59Z",
+  "updated_at": "2026-09-16T22:38:44Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -236,26 +236,26 @@
       ]
     },
     "routeros": {
-      "version": "7.24.3",
-      "tag": "7.24.3",
-      "prev_tag": "7.24.2",
+      "version": "7.24.4",
+      "tag": "7.24.4",
+      "prev_tag": "7.24.3",
       "repo": "elseif/MikroTikPatch",
       "assets": [
         {
-          "file": "routeros-chr-7.24.3.vmdk.zip",
+          "file": "routeros-chr-7.24.4.vmdk.zip",
           "type": "zip",
-          "sha256": "ed66d901bcb3305ebd8e8bf3592a8e590fa67e7f20871bf03952c36470177e72",
-          "size": "26912299",
-          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.3/chr-7.24.3.vmdk.zip",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.3.vmdk.zip"
+          "sha256": "4fbc1cac52940c011afc80f4bd92171c8eafdf3e8f05273bb4499b147668a528",
+          "size": "26911815",
+          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.4/chr-7.24.4.vmdk.zip",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.4.vmdk.zip"
         },
         {
-          "file": "routeros-chr-7.24.3-legacy-bios.vmdk.zip",
+          "file": "routeros-chr-7.24.4-legacy-bios.vmdk.zip",
           "type": "zip",
-          "sha256": "beed045788dcf9cda4b7a38b63caf982f979bce9d791a73ed73f5f6ed2704ce1",
-          "size": "26941559",
-          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.3/chr-7.24.3-legacy-bios.vmdk.zip",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.3-legacy-bios.vmdk.zip"
+          "sha256": "ca38165963c6bc0f9b2811ebabdd955bcf285647299712e8b8acca81d97d2bce",
+          "size": "26940914",
+          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.4/chr-7.24.4-legacy-bios.vmdk.zip",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.4-legacy-bios.vmdk.zip"
         }
       ]
     },
