@@ -1,5 +1,6 @@
 {
-  // sing-box v1.14.0 手机端配置（SFA / SFI 通用）— 脱敏模板
+  // ★ 模板文件：把所有 <...> 占位符替换为实际值后使用，清单见 README.md
+  // sing-box v1.14.0 手机端配置（SFA / SFI 通用）
   // 分流参考 OxiDNS 瀑布流（DNS 与路由规则均自上而下、首条命中即停）：
   //  1  局域网(geosite private) 直连
   //  2a 自定义拒绝  2b 自定义代理  2c 自定义直连
@@ -126,7 +127,7 @@
       {
         "action": "evaluate",
         "server": "remote-dns",
-        "client_subnet": "180.168.255.18/24"
+        "client_subnet": "<client-subnet-cidr>"
       },
       {
         "match_response": true,
@@ -136,8 +137,7 @@
       {
         "action": "respond"
       }
-    ],
-    "final": "remote-dns"
+    ]
   },
 
   "http_clients": [
@@ -149,9 +149,6 @@
   ],
 
   "inbounds": [
-    // TUN 入站：全局虚拟网卡接管流量（需 SFA/SFI 授权 VPN）
-    // dns_mode=hijack：拦截系统 DNS 进 DNS 模块；auto_route：自动路由全部流量
-    // strict_route：严格路由（防止绕过）；stack=mixed：TCP/UDP 均用 system 栈
     {
       "type": "tun",
       "tag": "tun-in",
@@ -166,7 +163,7 @@
   ],
 
   "outbounds": [
-    // 节点选择器：路由规则引用 proxy（tag 小写以匹配规则；默认 <node-2>）
+    // 节点选择器（原 04_outbound.json 的 Proxy，tag 改小写以匹配路由规则；GLOBAL 已并入此选择器）
     {
       "tag": "proxy",
       "type": "selector",
@@ -196,25 +193,24 @@
     {
       "type": "hysteria2",
       "tag": "<node-1>",
-      "server": "<node-1-ip>",
+      "server": "<node-1-server>",
       "server_ports": ["30000:50000"],
-      "password": "<password-1>",
+      "password": "<node-1-password>",
       "up_mbps": 50,
       "down_mbps": 100,
       "obfs": {
         "type": "salamander",
-        "password": "<obfs-password-1>"
+        "password": "<node-1-obfs-password>"
       },
       "tls": {
         "enabled": true,
         "disable_sni": false,
-        "server_name": "<sni-1>",
+        "server_name": "<node-1-sni>",
         "insecure": false,
         "alpn": ["h3"],
-        // 手机端改内联证书：把服务器 cert.crt 的完整内容（-----BEGIN/END CERTIFICATE----- 多行）
-        // 替换下面的占位符；若服务器不用自签证书可整体删除 certificate 块
+        // 手机端改内联证书：把服务器 cert.crt 的内容粘贴到这里
         "certificate": [
-          "<server-cert-1>"
+          "<node-1-cert>"
         ]
       }
     },
@@ -222,41 +218,40 @@
     {
       "type": "hysteria2",
       "tag": "<node-2>",
-      "server": "<node-2-ip>",
+      "server": "<node-2-server>",
       "server_ports": ["30000:50000"],
-      "password": "<password-2>",
+      "password": "<node-2-password>",
       "up_mbps": 50,
       "down_mbps": 100,
       "obfs": {
         "type": "salamander",
-        "password": "<obfs-password-2>"
+        "password": "<node-2-obfs-password>"
       },
       "tls": {
         "enabled": true,
         "disable_sni": false,
-        "server_name": "<sni-1>",
+        "server_name": "<node-2-sni>",
         "insecure": false,
         "alpn": ["h3"],
-        // 手机端改内联证书：把服务器 cert.crt 的完整内容（-----BEGIN/END CERTIFICATE----- 多行）
-        // 替换下面的占位符；若服务器不用自签证书可整体删除 certificate 块
+        // 手机端改内联证书：把服务器 cert.crt 的内容粘贴到这里
         "certificate": [
-          "<server-cert-2>"
+          "<node-2-cert>"
         ]
       }
     },
-    // ==== 节点 3：<node-3>（vless + XTLS Vision）====
+    // ==== 节点 3：<node-3>（vless）====
     {
       "type": "vless",
       "tag": "<node-3>",
-      "server": "<node-3-ip>",
+      "server": "<node-3-server>",
       "server_port": 443,
-      "uuid": "<uuid>",
+      "uuid": "<node-3-uuid>",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "disable_sni": false,
-        "server_name": "<sni-2>",
+        "server_name": "<node-3-sni>",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -264,15 +259,9 @@
         }
       }
     },
-    // 直连出站：国内流量 / 局域网
     {
       "type": "direct",
       "tag": "direct"
-    },
-    // 阻断出站：广告 / 拒绝规则用
-    {
-      "type": "block",
-      "tag": "block"
     }
   ],
 
@@ -446,7 +435,6 @@
   },
 
   "experimental": {
-    // 缓存文件：持久化 DNS 缓存，重启不丢、加速解析
     "cache_file": {
       "enabled": true,
       "store_dns": true
