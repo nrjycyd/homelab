@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-16T22:38:44Z",
+  "updated_at": "2026-09-18T22:16:44Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -196,25 +196,25 @@
       ]
     },
     "dae": {
-      "version": "2.0.0",
-      "tag": "v2.0.0",
-      "prev_tag": "",
+      "version": "2.1.1",
+      "tag": "v2.1.1",
+      "prev_tag": "v2.0.0",
       "repo": "daeuniverse/dae",
       "assets": [
         {
           "file": "dae-linux-x86_64.deb",
           "type": "deb",
-          "sha256": "055adbda152f2d28f9190caff515fbecec86f5fd94a94844c15a1dea45d9ec75",
-          "size": "11382568",
-          "source": "https://github.com/daeuniverse/dae/releases/download/v2.0.0/dae-linux-x86_64.deb",
+          "sha256": "bae957fcfaa647e72718d4565feb282115408f8d56cc90b5d49ca21147b512d2",
+          "size": "11845580",
+          "source": "https://github.com/daeuniverse/dae/releases/download/v2.1.1/dae-linux-x86_64.deb",
           "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/dae-linux-x86_64.deb"
         },
         {
           "file": "dae-linux-x86_64.tar.xz",
           "type": "tar.xz",
-          "sha256": "c8f25441fd68d0030cf692bca23606c2a12b55c8eb8fd66b068eed20201c2b2b",
-          "size": "11371480",
-          "source": "https://github.com/daeuniverse/dae/releases/download/v2.0.0/dae-linux-x86_64.tar.xz",
+          "sha256": "c550af580dc97cc90986260da78c4bf72917f3213c2b5d8b79c45199d9c3dc90",
+          "size": "11843556",
+          "source": "https://github.com/daeuniverse/dae/releases/download/v2.1.1/dae-linux-x86_64.tar.xz",
           "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/dae-linux-x86_64.tar.xz"
         }
       ]
