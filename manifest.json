@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-24T23:00:17Z",
+  "updated_at": "2026-09-25T23:05:02Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -92,34 +92,34 @@
       ]
     },
     "sing-box-releases": {
-      "version": "1.14.1-reF1nd",
-      "tag": "v1.14.1-reF1nd",
-      "prev_tag": "v1.14.0-reF1nd.1",
+      "version": "1.14.2-reF1nd",
+      "tag": "v1.14.2-reF1nd",
+      "prev_tag": "v1.14.1-reF1nd",
       "repo": "reF1nd/sing-box-releases",
       "assets": [
         {
-          "file": "sing-box-releases-SFL-1.14.1-reF1nd-amd64.deb",
+          "file": "sing-box-releases-SFL-1.14.2-reF1nd-amd64.deb",
           "type": "deb",
-          "sha256": "ac2dcd530e20e0129443b06b893fb0b96b979e1f0546909417f55a44b24c0720",
-          "size": "112725714",
-          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.1-reF1nd/SFL-1.14.1-reF1nd-amd64.deb",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-SFL-1.14.1-reF1nd-amd64.deb"
+          "sha256": "75d4a6638620dea3662dd024defbc13d8ffebf9112577bcef3591fae4a53a22b",
+          "size": "112772606",
+          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.2-reF1nd/SFL-1.14.2-reF1nd-amd64.deb",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-SFL-1.14.2-reF1nd-amd64.deb"
         },
         {
-          "file": "sing-box-releases-1.14.1-reF1nd-linux-amd64-glibc.tar.gz",
+          "file": "sing-box-releases-1.14.2-reF1nd-linux-amd64-glibc.tar.gz",
           "type": "tar.gz",
-          "sha256": "0e39a3e63d95356e2a940854d17d9440bb077b9659d053044dd7ed2df639508d",
-          "size": "34447285",
-          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.1-reF1nd/sing-box-1.14.1-reF1nd-linux-amd64-glibc.tar.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.1-reF1nd-linux-amd64-glibc.tar.gz"
+          "sha256": "99abd011278bb873bc265a03f02f56ca8c97bd44dd69cd2d7f6a64b2d080e51a",
+          "size": "34579329",
+          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.2-reF1nd/sing-box-1.14.2-reF1nd-linux-amd64-glibc.tar.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.2-reF1nd-linux-amd64-glibc.tar.gz"
         },
         {
-          "file": "sing-box-releases-1.14.1-reF1nd-linux-amd64-musl.tar.gz",
+          "file": "sing-box-releases-1.14.2-reF1nd-linux-amd64-musl.tar.gz",
           "type": "tar.gz",
-          "sha256": "6b9464b4fd4bcbf5f2820b7563b6ee1727850b703f3b06bc3cc8997eee4514ce",
-          "size": "34477927",
-          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.1-reF1nd/sing-box-1.14.1-reF1nd-linux-amd64-musl.tar.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.1-reF1nd-linux-amd64-musl.tar.gz"
+          "sha256": "7b059e26e0d6af88932470272877ca0f60b078d70342a513fd9f4fb8805935f3",
+          "size": "34607900",
+          "source": "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.2-reF1nd/sing-box-1.14.2-reF1nd-linux-amd64-musl.tar.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-releases-1.14.2-reF1nd-linux-amd64-musl.tar.gz"
         }
       ]
     },
