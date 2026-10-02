@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-01T23:40:42Z",
+  "updated_at": "2026-10-02T23:32:56Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -260,18 +260,18 @@
       ]
     },
     "rtp2httpd": {
-      "version": "3.17.1",
-      "tag": "v3.17.1",
-      "prev_tag": "",
+      "version": "3.17.2",
+      "tag": "v3.17.2",
+      "prev_tag": "v3.17.1",
       "repo": "stackia/rtp2httpd",
       "assets": [
         {
-          "file": "rtp2httpd-3.17.1-x86_64",
+          "file": "rtp2httpd-3.17.2-x86_64",
           "type": "none",
-          "sha256": "a94dadb3d010a25cef840ec56d5bf56bfaa5befb3348f80e7cc44dd85e9cbdfd",
-          "size": "976736",
-          "source": "https://github.com/stackia/rtp2httpd/releases/download/v3.17.1/rtp2httpd-3.17.1-x86_64",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/rtp2httpd-3.17.1-x86_64"
+          "sha256": "eb7653e43858d356fdebde42df907024ed94537bb9e41a9da758330565c16164",
+          "size": "993120",
+          "source": "https://github.com/stackia/rtp2httpd/releases/download/v3.17.2/rtp2httpd-3.17.2-x86_64",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/rtp2httpd-3.17.2-x86_64"
         }
       ]
     }
