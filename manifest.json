@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-02T23:32:56Z",
+  "updated_at": "2026-10-09T23:48:55Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -52,42 +52,42 @@
       ]
     },
     "sing-box": {
-      "version": "1.14.2",
-      "tag": "v1.14.2",
-      "prev_tag": "v1.14.1",
+      "version": "1.14.3",
+      "tag": "v1.14.3",
+      "prev_tag": "v1.14.2",
       "repo": "SagerNet/sing-box",
       "assets": [
         {
-          "file": "sing-box-1.14.2_linux_amd64.deb",
+          "file": "sing-box-1.14.3_linux_amd64.deb",
           "type": "deb",
-          "sha256": "3a15ee1ee918cb5297ccf7fb4356b31ba85f8a7c01da122c5b3e3aeda0568001",
-          "size": "32302424",
-          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.2/sing-box_1.14.2_linux_amd64.deb",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.2_linux_amd64.deb"
+          "sha256": "eb8a5f1f2643baf1a060d0b5f0d1d015e28b72afa446be2d180f366a5dde18b1",
+          "size": "32297762",
+          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/sing-box_1.14.3_linux_amd64.deb",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.3_linux_amd64.deb"
         },
         {
-          "file": "sing-box-1.14.2-linux-amd64.tar.gz",
+          "file": "sing-box-1.14.3-linux-amd64.tar.gz",
           "type": "tar.gz",
-          "sha256": "a684484d7477d1437282ee411f4d131d0340aaad60a7868841ebd5d87dd8a0c6",
-          "size": "31680686",
-          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.2/sing-box-1.14.2-linux-amd64.tar.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.2-linux-amd64.tar.gz"
+          "sha256": "e2bdf179c15a3652955dc44867e33ca0965c9c9b91b34267dcc5a5d639a5feee",
+          "size": "31678266",
+          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/sing-box-1.14.3-linux-amd64.tar.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.3-linux-amd64.tar.gz"
         },
         {
-          "file": "sing-box-1.14.2-linux-amd64-glibc.tar.gz",
+          "file": "sing-box-1.14.3-linux-amd64-glibc.tar.gz",
           "type": "tar.gz",
-          "sha256": "5c7bc18461827b28d0e5ee7e89d33b276d3ff7c818531104c8e8d26d85b0656e",
-          "size": "32500990",
-          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.2/sing-box-1.14.2-linux-amd64-glibc.tar.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.2-linux-amd64-glibc.tar.gz"
+          "sha256": "cadbaded70a635d0c37bf52614d8e3116542243247211e0b441328595c62acb6",
+          "size": "32493273",
+          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/sing-box-1.14.3-linux-amd64-glibc.tar.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.3-linux-amd64-glibc.tar.gz"
         },
         {
-          "file": "sing-box-1.14.2-linux-amd64-musl.tar.gz",
+          "file": "sing-box-1.14.3-linux-amd64-musl.tar.gz",
           "type": "tar.gz",
-          "sha256": "8f6cb4bcf94d2b33c65d52e0d5b142db29a938336f1ff7267f397ac3758fc297",
-          "size": "32525286",
-          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.2/sing-box-1.14.2-linux-amd64-musl.tar.gz",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.2-linux-amd64-musl.tar.gz"
+          "sha256": "41fc81fd041134d4d7d850a928d7d2cde17a7d6563953f406b22d32a68bfab1f",
+          "size": "32521387",
+          "source": "https://github.com/SagerNet/sing-box/releases/download/v1.14.3/sing-box-1.14.3-linux-amd64-musl.tar.gz",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/sing-box-1.14.3-linux-amd64-musl.tar.gz"
         }
       ]
     },
