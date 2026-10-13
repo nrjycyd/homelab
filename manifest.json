@@ -1,28 +1,28 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-13T01:48:36Z",
+  "updated_at": "2026-10-13T23:35:36Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
-      "version": "5-ph-srs-20261013-d52d6e8",
-      "tag": "v5-ph-srs-20261013-d52d6e8",
-      "prev_tag": "v5-ph-srs-20260730-b93784b",
+      "version": "5-ph-srs-20261013-dd882c9",
+      "tag": "v5-ph-srs-20261013-dd882c9",
+      "prev_tag": "v5-ph-srs-20261013-d52d6e8",
       "repo": "yyysuo/mosdns",
       "assets": [
         {
           "file": "mosdns-linux-amd64-v3.zip",
           "type": "zip",
-          "sha256": "fad1403eda1494d770bc8c50883196d7a2db54aa79334e61cf6e5ee5942b8905",
-          "size": "9763425",
-          "source": "https://github.com/yyysuo/mosdns/releases/download/v5-ph-srs-20261013-d52d6e8/mosdns-linux-amd64-v3.zip",
+          "sha256": "a7840b612b6718d4e12aaddd5862ccbf4a53c57158de9d181e4fa485cccf385c",
+          "size": "9768881",
+          "source": "https://github.com/yyysuo/mosdns/releases/download/v5-ph-srs-20261013-dd882c9/mosdns-linux-amd64-v3.zip",
           "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mosdns-linux-amd64-v3.zip"
         },
         {
           "file": "mosdns-linux-amd64-v3.zip",
           "type": "zip",
-          "sha256": "fad1403eda1494d770bc8c50883196d7a2db54aa79334e61cf6e5ee5942b8905",
-          "size": "9763425",
-          "source": "https://github.com/yyysuo/mosdns/releases/download/v5-ph-srs-20261013-d52d6e8/mosdns-linux-amd64-v3.zip",
+          "sha256": "a7840b612b6718d4e12aaddd5862ccbf4a53c57158de9d181e4fa485cccf385c",
+          "size": "9768881",
+          "source": "https://github.com/yyysuo/mosdns/releases/download/v5-ph-srs-20261013-dd882c9/mosdns-linux-amd64-v3.zip",
           "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/mosdns-linux-amd64-v3.zip"
         }
       ]
