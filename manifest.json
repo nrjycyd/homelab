@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-22T22:57:35Z",
+  "updated_at": "2026-10-23T22:53:07Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -236,26 +236,26 @@
       ]
     },
     "routeros": {
-      "version": "7.24.5",
-      "tag": "7.24.5",
-      "prev_tag": "7.24.4",
+      "version": "7.25",
+      "tag": "7.25",
+      "prev_tag": "7.24.5",
       "repo": "elseif/MikroTikPatch",
       "assets": [
         {
-          "file": "routeros-chr-7.24.5.vmdk.zip",
+          "file": "routeros-chr-7.25.vmdk.zip",
           "type": "zip",
-          "sha256": "1aa67b50c8f0908c355a4d9b7b733bf1309bf61a557681e247f74b337f025640",
-          "size": "26913466",
-          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.5/chr-7.24.5.vmdk.zip",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.5.vmdk.zip"
+          "sha256": "5399ed79287a3f53a347ee61d8145a48ec3a6d3198faa2055ffaec628e49a89d",
+          "size": "26966865",
+          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.25/chr-7.25.vmdk.zip",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.25.vmdk.zip"
         },
         {
-          "file": "routeros-chr-7.24.5-legacy-bios.vmdk.zip",
+          "file": "routeros-chr-7.25-legacy-bios.vmdk.zip",
           "type": "zip",
-          "sha256": "91dca7af7298d09ca9126c798fb4c640d96e57989f3bca360508a33a561f71b2",
-          "size": "26943700",
-          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.24.5/chr-7.24.5-legacy-bios.vmdk.zip",
-          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.24.5-legacy-bios.vmdk.zip"
+          "sha256": "030981ea110587a2ea61b4a4358cdf5b6644b8e8aa6755ea6acb49f76e5ec194",
+          "size": "26995323",
+          "source": "https://github.com/elseif/MikroTikPatch/releases/download/7.25/chr-7.25-legacy-bios.vmdk.zip",
+          "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/routeros-chr-7.25-legacy-bios.vmdk.zip"
         }
       ]
     },
