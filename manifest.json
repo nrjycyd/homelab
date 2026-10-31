@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-29T23:46:50Z",
+  "updated_at": "2026-10-31T23:04:12Z",
   "status": "partial",
   "binaries": {
     "mosdns": {
@@ -220,17 +220,17 @@
       ]
     },
     "xray": {
-      "version": "26.10.29",
-      "tag": "v26.10.29",
-      "prev_tag": "v26.10.21",
+      "version": "26.10.31",
+      "tag": "v26.10.31",
+      "prev_tag": "v26.10.29",
       "repo": "XTLS/Xray-core",
       "assets": [
         {
           "file": "xray-linux-64.zip",
           "type": "zip",
-          "sha256": "8a5f3e6a1057e4bd0f8a7c57c9d91204b4be0b74222a6e210d070603101163c2",
-          "size": "16794689",
-          "source": "https://github.com/XTLS/Xray-core/releases/download/v26.10.29/Xray-linux-64.zip",
+          "sha256": "e4bd9119f50ae7c41658b1abd0679ae06f98bd864a2907ff33f2f2cf7081b214",
+          "size": "16692690",
+          "source": "https://github.com/XTLS/Xray-core/releases/download/v26.10.31/Xray-linux-64.zip",
           "mirror": "https://github.com/nrjycyd/homelab/releases/download/pkgs/xray-linux-64.zip"
         }
       ]
